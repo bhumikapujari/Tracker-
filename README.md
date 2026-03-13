@@ -1,47 +1,52 @@
-# Tracker60 - 60-Day Technical Mastery Tracker
+# Prep60 – 60 Day Developer Preparation Tracker
 
-A premium, gamified 60-day study progress tracker built with HTML, CSS, and Vanilla JavaScript. Designed for technical interview preparation, covering DSA, Core CS, AI/ML, Aptitude, and Projects.
+> **Minimal productivity tracker for structured coding interview preparation.**
 
-![Tracker Preview](https://raw.githubusercontent.com/placeholder-path-to-image.png)
+Prep60 is a minimal web application designed to help developers stay consistent while preparing for coding interviews. It allows users to track daily progress across DSA, Core CS subjects, AI/ML learning, Aptitude preparation, and Project development.
 
 ## 🚀 Features
 
-- **Daily Tracker**: 60-day structured roadmap.
-- **Gamification**: XP system, level progression (Level 1-5), and daily study streaks.
-- **Performance Dashboard**: Real-time analytics using Chart.js.
-- **DSA Counter**: Track progress toward 120 DSA problems with difficulty breakdown.
-- **GitHub-style Heatmap**: Visual activity tracker.
-- **Local Persistence**: Progress is automatically saved using `localStorage`.
-- **Premium UI**: Glassmorphism design with neon accents and dark mode.
+- **60-Day Structured Tracker**: A pre-defined roadmap to guide your daily preparation.
+- **Daily Task Checklist**: Clear checkboxes to mark tasks as completed.
+- **DSA Problem Tracker**: Keep track of your goal to solve 120 DSA problems.
+- **Progress Dashboard**: Visual statistics and completion rates to monitor your growth.
+- **Local Storage**: All your progress and notes are saved locally in your browser.
+- **Minimalist UI**: A distraction-free, professional developer dashboard aesthetic.
+- **Responsive Design**: Full support for both desktop and mobile devices.
 
-## 🛠️ Built With
+## 🛠️ Tech Stack
 
-- HTML5 (Semantic Structure)
-- CSS3 (Custom Properties, Glassmorphism, Responsive Design)
-- JavaScript (Vanilla ES6+)
-- [Chart.js](https://www.chartjs.org/) (Data Visualization)
-- [Google Fonts](https://fonts.google.com/) (Inter & Outfit)
-
-## 📦 How to Use
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/your-username/Tracker60.git
-   ```
-2. **Open the project**:
-   Simply open `index.html` in any modern web browser.
+- **HTML5**: Semantic structure.
+- **CSS3**: Premium styling with glassmorphism and modern layouts.
+- **JavaScript**: Clean, modular vanilla JS for logic.
+- **Local Storage**: Client-side data persistence.
 
 ## 📂 Project Structure
 
-- `index.html`: The main Single Page Application structure.
-- `style.css`: Premium styling and layout.
-- `app.js`: Core application logic and state management.
-- `data.js`: The 60-day syllabus skeleton data.
+- `index.html` – Main UI structure and SPA container.
+- `style.css` – Styling, layout, and modern animations.
+- `app.js` – Application logic, gamification, and progress tracking.
+- `data.js` – 60-day study plan data and syllabus skeleton.
 
-## 💾 Saving Progress
+## 💻 Usage
 
-Your progress is saved locally to your browser. If you clear your browser cache or switch devices, you will need to export/import your local storage state (feature coming soon!).
+To run this project locally:
 
-## 📄 License
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/bhumikapujari/Tracker-.git
+   ```
+2. **Open the project folder**:
+   ```bash
+   cd prep60
+   ```
+3. **Run the app**:
+   Open `index.html` in any modern web browser.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 🏷️ GitHub Topics
+
+`javascript`, `productivity`, `study-tracker`, `coding-interview-prep`, `dsa`, `web-app`, `student-project`
+
+---
+
+*This project was built to demonstrate consistent technical growth and project management skills.*
