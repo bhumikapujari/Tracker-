@@ -349,6 +349,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // --- Export / Import ---
+    const exportBtn = document.getElementById('export-btn');
+    const importBtn = document.getElementById('import-btn');
+    const importFile = document.getElementById('import-file');
+
+    exportBtn.onclick = () => {
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(state));
+        const downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href", dataStr);
+        downloadAnchorNode.setAttribute("download", `tracker_backup_${new Date().toLocaleDateString().replace(/\//g, '-')}.json`);
+        document.body.appendChild(downloadAnchorNode);
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+        showAchievement("Backup Created!", "Transfer this file to your other device.");
+    };
+
+    importBtn.onclick = () => importFile.click();
+
+    importFile.onchange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            try {
+                const newState = JSON.parse(event.target.result);
+                // Simple validation
+                if (newState.hasOwnProperty('userXP') && newState.hasOwnProperty('completedTaskIds')) {
+                    state = newState;
+                    saveState();
+                    location.reload(); // Refresh to apply all data
+                } else {
+                    alert("Invalid backup file!");
+                }
+            } catch (err) {
+                alert("Error reading file!");
+            }
+        };
+        reader.readAsText(file);
+    };
+
     // --- Init ---
     updateSidebarStats();
     updateTopStats();
