@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>60-Day Technical Mastery Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dark-theme">
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">🚀</span>
+                <span class="logo-text">Tracker<span class="accent">60</span></span>
+            </div>
+            <nav class="nav-links">
+                <button class="nav-btn active" data-view="tracker">
+                    <span class="icon">📅</span> Daily Tracker
+                </button>
+                <button class="nav-btn" data-view="dashboard">
+                    <span class="icon">📊</span> Dashboard
+                </button>
+            </nav>
+            <div class="user-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Level</span>
+                    <span id="user-level" class="stat-value">1</span>
+                </div>
+                <div class="xp-bar-container">
+                    <div id="xp-progress" class="xp-progress" style="width: 0%"></div>
+                </div>
+                <div class="stat-item">
+                    <span id="user-rank" class="rank-badge">Beginner</span>
+                    <span id="current-xp" class="xp-text">0 / 200 XP</span>
+                </div>
+            </div>
+            <div class="streak-panel">
+                <div class="streak-icon">🔥</div>
+                <div class="streak-count"><span id="streak-number">0</span> Day Streak</div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header with Top Stats -->
+            <header class="top-header">
+                <div class="header-search">
+                    <span id="current-date-display">March 13, 2026</span>
+                </div>
+                <div class="top-stat-cards">
+                    <div class="mini-stat-card">
+                        <span class="stat-title">DSA Problems</span>
+                        <span id="dsa-solved-count" class="stat-count">0 / 120</span>
+                    </div>
+                    <div class="mini-stat-card">
+                        <span class="stat-title">Today's Efficiency</span>
+                        <span id="productivity-score" class="stat-count">0%</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Views -->
+            <div id="tracker-view" class="view-container active">
+                <div class="day-navigation">
+                    <button id="prev-day" class="icon-btn">◀</button>
+                    <h2 id="current-day-title">Day 1: Getting Started</h2>
+                    <button id="next-day" class="icon-btn">▶</button>
+                </div>
+                
+                <div class="daily-overview">
+                    <div class="week-info">Week <span id="current-week-num">1</span></div>
+                    <div class="completion-ring-container">
+                        <svg class="progress-ring" width="120" height="120">
+                            <circle class="progress-ring__circle-bg" stroke="rgba(255,255,255,0.1)" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                            <circle id="day-progress-ring" class="progress-ring__circle" stroke="var(--neon-green)" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                        </svg>
+                        <div class="ring-text">
+                            <span id="tasks-done">0</span>/<span id="tasks-total">5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tasks-container" class="tasks-grid">
+                    <!-- Tasks will be injected here -->
+                </div>
+
+                <div class="heatmap-section glass-panel">
+                    <h3>Study Heatmap</h3>
+                    <div id="heatmap-grid" class="heatmap-grid">
+                        <!-- Heatmap dots will be injected here -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="dashboard-view" class="view-container">
+                <div class="dashboard-grid">
+                    <div class="dash-card glass-panel wide">
+                        <h3>Progress Overview</h3>
+                        <canvas id="weeklyProgressChart"></canvas>
+                    </div>
+                    <div class="dash-card glass-panel">
+                        <h3>Category Breakdown</h3>
+                        <canvas id="categoryPieChart"></canvas>
+                    </div>
+                    <div class="dash-card glass-panel">
+                        <h3>Productivity Trend</h3>
+                        <canvas id="productivityLineChart"></canvas>
+                    </div>
+                    <div class="dash-card glass-panel dsa-stats">
+                        <h3>DSA Mastery</h3>
+                        <div class="dsa-progress-bar">
+                            <div id="dsa-full-progress" class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <div class="difficulty-split">
+                            <div class="diff-item easy">Easy <span id="easy-count">0</span></div>
+                            <div class="diff-item medium">Medium <span id="medium-count">0</span></div>
+                            <div class="diff-item hard">Hard <span id="hard-count">0</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals or Toast notifications can go here -->
+    <div id="achievement-toast" class="toast hidden">
+        <div class="toast-content">
+            <span class="toast-icon">🏆</span>
+            <div>
+                <h4 id="toast-title">Achievement Unlocked!</h4>
+                <p id="toast-desc">First 10 problems solved</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data and App scripts -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
